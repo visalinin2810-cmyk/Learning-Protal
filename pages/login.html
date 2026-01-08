@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growly | Login</title>
+  <link rel="stylesheet" href="../style/login.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Welcome Back </h2>
+    <p>Login to your <strong>Growly</strong> account and continue your learning journey.</p>
+
+    <form class="forms" id="formvalidation">
+      <label>Enter your user Name</label>
+      <input type="text" id="username" placeholder="Username or Email">
+      <span id="usernameError" class="error-message"></span>
+      <label>Enter your Password</label>
+      <input type="e-mail" id="e-mail" placeholder="Password">
+      <span id="e-mailError" class="error-message"></span>
+      <button type="button" onclick="validateForm(event)">Login Your Account</button>
+      <p id="submitStatus" class="success-message"></p>
+      <a href="../pages/signup.html">Create a new account</a>
+
+    </form>
+  </div>
+  <script src="../jspages/lodin.js"></script>
+
+</body>
+
+</html>

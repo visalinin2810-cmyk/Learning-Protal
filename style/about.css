@@ -1,0 +1,139 @@
+   body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    nav {
+      background-color: #2193b0;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      height: 80px;
+      position: sticky;
+      top: 0px;
+      left: 0px;
+    }
+
+    nav h1 {
+      font-size: 45px;
+    }
+
+    nav ul {
+      list-style: none; 
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 25px;
+    }
+
+    nav ul li a:hover {
+      color: black;
+    }
+
+    header {
+      /* background: #4CAF50; */
+      color: black;
+      padding: 25px;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+    .highlight {
+      background: #a4d8e3;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    ul {
+      margin-top: 10px;
+    }
+   footer {
+      background: linear-gradient( #6dd5ed, #2193b0);
+      color: white;
+      padding: 40px  20px ;
+      text-align: center;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section {
+      max-width: 250px;
+      text-align: left;
+      padding: 0 15px;
+    } 
+
+    .footer-section h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      border-bottom: 2px solid white; 
+      padding-bottom: 5px;
+
+    }
+
+    .footer-section p{
+      font-size: 20px;
+      color: #eaf7ff;
+      text-decoration: none;
+      margin: 6px 0;
+    }
+    .footer-section a {
+      font-size: 20px;
+      color: #eaf7ff;
+      text-decoration: none;
+      margin: 6px 0;
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+   
+    .footer-bottom {
+      padding-top: 30px;
+      font-size: 20px;
+      color: #eaf7ff;
+    }
+    .back-btn  a{
+      position: fixed;
+      bottom: 40px;
+      right: 50px;
+      background-color: #2193b0 ;
+      color: black;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 20px;
+      font-size: 20px;
+      text-decoration: none;
+     
+
+}
+.back-btn a:hover {
+  background-color: black;
+  color: #fff;
+}
