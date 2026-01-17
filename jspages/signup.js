@@ -32,7 +32,6 @@ const submitstatus = document.getElementById('submitStatus');
       submitstatus.style.color = 'green';
       submitstatus.textContent = "Validation successful.";
       window.location.href = "./coursemain.html";
-
     } 
     else {
       submitstatus.style.color = 'red';
@@ -47,3 +46,5 @@ const submitstatus = document.getElementById('submitStatus');
   function displayError(id, message) {
     document.getElementById(id).textContent = message;
   }
+
+  

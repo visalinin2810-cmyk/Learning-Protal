@@ -36,7 +36,7 @@ function validateForm(event) {
 
 function resetErrors() {
   document.querySelectorAll('.error-message')
-    .forEach(a => a.textContent = '');
+    .forEach(a => a.textContent = '')
 }
 
 function displayError(id, message) {
