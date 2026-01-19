@@ -12,7 +12,7 @@ function validateForm(event) {
     displayError('usernameError', 'Enter your user Name.');
     isvalid = false;
   } 
-  else if (usernameValue.length < 4) {
+  else if (usernameValue.length < 3) {
     displayError('usernameError', 'Username must be at least 4 characters.');
     isvalid = false;
   }
