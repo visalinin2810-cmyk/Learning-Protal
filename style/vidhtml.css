@@ -15,9 +15,12 @@
       text-align: center;
     }
 
-    header h1 {
-      margin-bottom: 15px;
-      font-size: 40px;
+        header h1 {
+      margin-bottom: 5px;
+      font-size: 30px;
+    }
+    header p{
+        font-size: 20px;
     }
 
     .container {
@@ -174,16 +177,7 @@
      
 
 }
-/* .back-btn a:hover { */
-  /* background-color: black;
-  color: #fff;
-}
 
-.quiz button a{
-  text-align: center;
-  margin-bottom: 20px;
-  text-decoration: none;
-} */
 
 .quiz-btn a{
   background-color: #2193b0 ;

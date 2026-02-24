@@ -1,40 +1,44 @@
-const usernameInput = document.getElementById("username");
+const emailInput = document.getElementById("username"); 
 const passwordInput = document.getElementById("password");
 const submitStatus = document.getElementById("submitStatus");
 
 function validateForm(event) {
-  event.preventDefault(); // Prevent default form submission behavior
+  event.preventDefault();
   resetErrors();
   let isValid = true;
 
-  const usernameValue = usernameInput.value.trim();
+  const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
 
-  // Username validation
-  if (usernameValue === "") {
-    submitStatus.style.color = "red";
-    displayError("usernameError", "Enter your user name.");
-    isValid = false;
-  } else if (usernameValue.length < 4) {
-    displayError("usernameError", "Username must be at least 4 characters.");
+  if (emailValue === "") {
+    displayError("usernameError", "Enter your email.");
     isValid = false;
   }
 
-  // Password validation
   if (passwordValue === "") {
     displayError("passwordError", "Enter your password.");
     isValid = false;
-  } else if (passwordValue.length < 6) {
-    displayError("passwordError", "Password must be at least 6 characters.");
-    isValid = false;
   }
 
-  // Final result
   if (isValid) {
-    submitStatus.style.color = "green";
-    submitStatus.textContent = "Login successful!!";
-  
-    window.location.href = "../pages/coursemain.html";
+    submitStatus.style.color = "blue";
+    submitStatus.textContent = "Logging in...";
+
+    auth.signInWithEmailAndPassword(emailValue, passwordValue)
+      .then((userCredential) => {
+        // Signed in 
+        submitStatus.style.color = "green";
+        submitStatus.textContent = "Login successful!! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "../pages/coursemain.html";
+        }, 2000);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        submitStatus.style.color = "red";
+        submitStatus.textContent = "Login failed: " + errorMessage;
+      });
   } else {
     submitStatus.style.color = "red";
     submitStatus.textContent = "Login failed!";
@@ -47,6 +51,9 @@ function resetErrors() {
 }
 
 function displayError(id, message) {
-  document.getElementById(id).textContent = message;
+  const errorElement = document.getElementById(id);
+  if (errorElement) {
+    errorElement.textContent = message;
+  }
 }
 
