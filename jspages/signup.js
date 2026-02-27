@@ -15,25 +15,42 @@ function validateForm(event) {
   const confirmPasswordValue = confirmPasswordInput.value.trim();
 
   if (nameValue.length === 0) {
-    displayError('nameError', 'Full Name is required.');
+    alert('Full Name is required.');
+    isValid = false;
+  }
+  if (nameValue.length < 3) {
+    alert('Full Name must be at least 3 characters long.');
+    isValid = false;
+  }
+  if (nameValue.length > 20) {
+    alert('Full Name must be less than 20 characters long.');
     isValid = false;
   }
 
   if (emailValue.length === 0) {
-    displayError('emailError', 'Email is required.');
+    alert('Email is required.');
     isValid = false;
-  } else if (!emailValue.includes('@')) {
-    displayError('emailError', 'Enter a valid email including @.');
+  }
+  if (emailValue.length > 20){
+      alert('Email must be less than 20 characters.');
+      isValid = false;
+  } 
+  if (emailValue.length < 3) {
+    alert('Email must be at least 3 characters long.');
+    isValid = false;
+  }
+  if (!emailValue.includes('@gmail.com')) {
+    alert('Enter a valid email including @.');
     isValid = false;
   }
 
   if (passwordValue.length < 6) {
-    displayError('passworderror', 'Password must be at least 6 characters.');
+    alert('Password must be at least 6 characters.');
     isValid = false;
   }
 
   if (confirmPasswordValue !== passwordValue) {
-    displayError('conformpassworderror', 'Passwords do not match.');
+    alert('Passwords do not match.');
     isValid = false;
   }
 

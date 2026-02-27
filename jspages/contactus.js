@@ -11,8 +11,8 @@ form.addEventListener("submit", function (event) {
     alert("Please fill in your name and ensure it is at least 3 characters long");
     return;
   }
-  if (email === "" || !email.includes("@")) {
-    alert("Please enter a valid email address including '@' .");
+  if (email === "" || !email.includes("@gmail.com")) {
+    alert("Please enter a valid email address including '@gmail.com'.");
     return;
   }
    if (message.length <= 10) {

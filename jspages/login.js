@@ -11,15 +11,34 @@ function validateForm(event) {
   const passwordValue = passwordInput.value.trim();
 
   if (emailValue === "") {
-    displayError("usernameError", "Enter your email.");
+    alert("Please fill in your email address.");
+    isValid = false;
+  } 
+  if (emailValue.length < 3) {
+    alert("Email must be at least 3 characters long.");
+    isValid = false;
+  }
+  if (emailValue.length >20){
+    alert ("Email must be less than 20 characters long.");
+    isValid = false;
+  }
+  if (!emailValue.includes("@gmail.com")) {
+    alert("Please enter a valid email address including '@gmail.com'.");
     isValid = false;
   }
 
   if (passwordValue === "") {
-    displayError("passwordError", "Enter your password.");
+    alert("Please enter your password.");
     isValid = false;
   }
-
+  if (passwordValue.length < 5) {
+    alert("Password must be at least 8 characters long.");
+    isValid = false;
+  }
+  if (!/[A-Z]/.test(passwordValue)) {
+    alert("Password must contain at least one uppercase letter.");
+    isValid = false;
+  }
   if (isValid) {
     submitStatus.style.color = "blue";
     submitStatus.textContent = "Logging in...";
@@ -43,6 +62,7 @@ function validateForm(event) {
     submitStatus.style.color = "red";
     submitStatus.textContent = "Login failed!";
   }
+  form.reset();
 }
 
 function resetErrors() {
