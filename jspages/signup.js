@@ -31,10 +31,10 @@ function validateForm(event) {
     alert('Email is required.');
     isValid = false;
   }
-  if (emailValue.length > 20){
-      alert('Email must be less than 20 characters.');
-      isValid = false;
-  } 
+  // if (emailValue.length > 20){
+  //     alert('Email must be less than 20 characters.');
+  //     isValid = false;
+  // } 
   if (emailValue.length < 3) {
     alert('Email must be at least 3 characters long.');
     isValid = false;
@@ -44,10 +44,10 @@ function validateForm(event) {
     isValid = false;
   }
 
-  if (passwordValue.length < 6) {
-    alert('Password must be at least 6 characters.');
-    isValid = false;
-  }
+  // if (passwordValue.length < 6) {
+  //   alert('Password must be at least 6 characters.');
+  //   isValid = false;
+  // }
 
   if (confirmPasswordValue !== passwordValue) {
     alert('Passwords do not match.');

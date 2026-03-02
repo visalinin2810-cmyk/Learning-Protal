@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced To Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #2e819a;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        button {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .add-btn { background: green; }
+        .delete-btn { background: red; }
+        .edit-btn { background: orange; }
+        .finish-btn { background: blue; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #eee;
+            margin-top: 8px;
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .finished-section {
+            margin-top: 20px;
+        }
+
+        .finished-section h3 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Growly To Do List</h2>
+
+    <div class="input-section">
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button class="add-btn" onclick="addTask()">Add</button>
+    </div>
+
+    <h3>Pending Tasks</h3>
+    <ul id="taskList"></ul>
+
+    <div class="finished-section">
+        <h3>Finished Tasks</h3>
+        <ul id="finishedList"></ul>
+    </div>
+</div>
+
+<script>
+
+function addTask() {
+    var input = document.getElementById("taskInput");
+    var taskText = input.value;
+
+    if (taskText === "") {
+        alert("Enter a task");
+        return;
+    }
+
+    createTask(taskText, "taskList");
+    input.value = "";
+}
+
+function createTask(text, listId) {
+
+    var li = document.createElement("li");
+    var span = document.createElement("span");
+    span.innerText = text;
+
+    var buttonDiv = document.createElement("div");
+    buttonDiv.className = "buttons";
+
+    // Finish Button
+    if (listId === "taskList") {
+        var finishBtn = document.createElement("button");
+        finishBtn.innerText = "Finish";
+        finishBtn.className = "finish-btn";
+
+        finishBtn.onclick = function() {
+            li.remove();
+            createTask(text, "finishedList");
+        };
+
+        buttonDiv.appendChild(finishBtn);
+    }
+
+    // Edit Button
+    if (listId === "taskList") {
+        var editBtn = document.createElement("button");
+        editBtn.innerText = "Edit";
+        editBtn.className = "edit-btn";
+
+        editBtn.onclick = function() {
+            var newText = prompt("Edit your task", span.innerText);
+            if (newText !== null && newText !== "") {
+                span.innerText = newText;
+            }
+        };
+
+        buttonDiv.appendChild(editBtn);
+    }
+
+    // Delete Button
+    var deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.className = "delete-btn";
+
+    deleteBtn.onclick = function() {
+        li.remove();
+    };
+
+    buttonDiv.appendChild(deleteBtn);
+
+    li.appendChild(span);
+    li.appendChild(buttonDiv);
+
+    document.getElementById(listId).appendChild(li);
+}
+
+</script>
+
+</body>
+</html>

@@ -18,10 +18,7 @@ function validateForm(event) {
     alert("Email must be at least 3 characters long.");
     isValid = false;
   }
-  if (emailValue.length >20){
-    alert ("Email must be less than 20 characters long.");
-    isValid = false;
-  }
+
   if (!emailValue.includes("@gmail.com")) {
     alert("Please enter a valid email address including '@gmail.com'.");
     isValid = false;
@@ -35,10 +32,7 @@ function validateForm(event) {
     alert("Password must be at least 8 characters long.");
     isValid = false;
   }
-  if (!/[A-Z]/.test(passwordValue)) {
-    alert("Password must contain at least one uppercase letter.");
-    isValid = false;
-  }
+ 
   if (isValid) {
     submitStatus.style.color = "blue";
     submitStatus.textContent = "Logging in...";
