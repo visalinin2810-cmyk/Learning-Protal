@@ -1,0 +1,70 @@
+        body {
+            font-family: Arial, sans-serif;
+            background: #2e819a;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        button {
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .add-btn { background: green; }
+        .delete-btn { background: red; }
+        .edit-btn { background: orange; }
+        .finish-btn { background: blue; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #eee;
+            margin-top: 8px;
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .finished-section {
+            margin-top: 20px;
+        }
+
+        .finished-section h3 {
+            margin-bottom: 5px;
+        }
