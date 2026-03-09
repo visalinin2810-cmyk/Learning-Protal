@@ -96,6 +96,79 @@
       @ 2025 Growly LMS / All Rights Reserved 🌱
     </div>
   </footer>
+  <script>
+    const uid=localStorage.getItem("uid");
+
+function addTodo(){
+
+const task=document.getElementById("taskInput").value;
+
+db.collection("users")
+.doc(uid)
+.collection("todos")
+.add({
+
+task:task,
+createdAt:firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+}
+
+function loadTodos(){
+
+db.collection("users")
+.doc(uid)
+.collection("todos")
+.get()
+
+.then((querySnapshot)=>{
+
+querySnapshot.forEach((doc)=>{
+
+console.log(doc.data().task);
+
+});
+
+});
+
+}
+
+function addNote(){
+
+const note=document.getElementById("noteInput").value;
+
+db.collection("users")
+.doc(uid)
+.collection("notes")
+.add({
+
+note:note,
+createdAt:firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+}
+
+function loadNotes(){
+
+db.collection("users")
+.doc(uid)
+.collection("notes")
+.get()
+
+.then((querySnapshot)=>{
+
+querySnapshot.forEach((doc)=>{
+
+console.log(doc.data().note);
+
+});
+
+});
+
+}
+  </script>
 </body>
 
 </html>

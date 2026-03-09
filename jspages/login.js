@@ -1,73 +1,43 @@
-const emailInput = document.getElementById("username"); 
-const passwordInput = document.getElementById("password");
-const submitStatus = document.getElementById("submitStatus");
+const emailInput=document.getElementById("username");
+const passwordInput=document.getElementById("password");
+const submitStatus=document.getElementById("submitStatus");
 
-function validateForm(event) {
-  event.preventDefault();
-  resetErrors();
-  let isValid = true;
+function validateForm(event){
 
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
+event.preventDefault();
 
-  if (emailValue === "") {
-    alert("Please fill in your email address.");
-    isValid = false;
-  } 
-  if (emailValue.length < 3) {
-    alert("Email must be at least 3 characters long.");
-    isValid = false;
-  }
+const email=emailInput.value.trim();
+const password=passwordInput.value.trim();
 
-  if (!emailValue.includes("@gmail.com")) {
-    alert("Please enter a valid email address including '@gmail.com'.");
-    isValid = false;
-  }
-
-  if (passwordValue === "") {
-    alert("Please enter your password.");
-    isValid = false;
-  }
-  if (passwordValue.length < 5) {
-    alert("Password must be at least 8 characters long.");
-    isValid = false;
-  }
- 
-  if (isValid) {
-    submitStatus.style.color = "blue";
-    submitStatus.textContent = "Logging in...";
-
-    auth.signInWithEmailAndPassword(emailValue, passwordValue)
-      .then((userCredential) => {
-        // Signed in 
-        submitStatus.style.color = "green";
-        submitStatus.textContent = "Login successful!! Redirecting...";
-        setTimeout(() => {
-          window.location.href = "../pages/coursemain.html";
-        }, 2000);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        submitStatus.style.color = "red";
-        submitStatus.textContent = "Login failed: " + errorMessage;
-      });
-  } else {
-    submitStatus.style.color = "red";
-    submitStatus.textContent = "Login failed!";
-  }
-  form.reset();
+if(email=="" || password==""){
+alert("Enter email and password");
+return;
 }
 
-function resetErrors() {
-  document.querySelectorAll(".error-message")
-    .forEach(span => span.textContent = "");
-}
+submitStatus.innerText="Logging in...";
 
-function displayError(id, message) {
-  const errorElement = document.getElementById(id);
-  if (errorElement) {
-    errorElement.textContent = message;
-  }
-}
+auth.signInWithEmailAndPassword(email,password)
 
+.then((userCredential)=>{
+
+const user=userCredential.user;
+
+localStorage.setItem("uid",user.uid);
+
+submitStatus.innerText="Login success";
+
+setTimeout(()=>{
+
+window.location.href="../pages/coursemain.html";
+
+},1500);
+
+})
+
+.catch((error)=>{
+
+submitStatus.innerText=error.message;
+
+});
+
+}

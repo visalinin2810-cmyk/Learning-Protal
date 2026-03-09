@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Growly | Todo Task</title>
     <link rel="stylesheet" href="../style/todo.css">
 </head>
 <body>
+
 
 <div class="container">
     <h2>Growly To Do List</h2>
@@ -25,78 +26,14 @@
     </div>
 </div>
 
-<script>
+<!-- Firebase SDKs (v8) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-function addTask() {
-    var input = document.getElementById("taskInput");
-    var taskText = input.value;
-
-    if (taskText === "") {
-        alert("Enter a task");
-        return;
-    }
-
-    createTask(taskText, "taskList");
-    input.value = "";
-}
-
-function createTask(text, listId) {
-
-    var li = document.createElement("li");
-    var span = document.createElement("span");
-    span.innerText = text;
-
-    var buttonDiv = document.createElement("div");
-    buttonDiv.className = "buttons";
-
-    // Finish Button
-    if (listId === "taskList") {
-        var finishBtn = document.createElement("button");
-        finishBtn.innerText = "Finish";
-        finishBtn.className = "finish-btn";
-
-        finishBtn.onclick = function() {
-            li.remove();
-            createTask(text, "finishedList");
-        };
-
-        buttonDiv.appendChild(finishBtn);
-    }
-
-    // Edit Button
-    if (listId === "taskList") {
-        var editBtn = document.createElement("button");
-        editBtn.innerText = "Edit";
-        editBtn.className = "edit-btn";
-
-        editBtn.onclick = function() {
-            var newText = prompt("Edit your task", span.innerText);
-            if (newText !== null && newText !== "") {
-                span.innerText = newText;
-            }
-        };
-
-        buttonDiv.appendChild(editBtn);
-    }
-
-    // Delete Button
-    var deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
-    deleteBtn.className = "delete-btn";
-
-    deleteBtn.onclick = function() {
-        li.remove();
-    };
-
-    buttonDiv.appendChild(deleteBtn);
-
-    li.appendChild(span);
-    li.appendChild(buttonDiv);
-
-    document.getElementById(listId).appendChild(li);
-}
-
-</script>
+<!-- App Scripts -->
+<script src="../jspages/firebase-init.js"></script>
+<script src="../jspages/todo.js"></script>
 
 </body>
 </html>

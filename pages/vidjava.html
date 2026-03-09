@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMS – Java Course</title>
   <link rel="stylesheet" href="../style/vidjava.css">
+  <link rel="stylesheet" href="../style/video-interactions.css">
 
 </head>
 
@@ -27,46 +28,54 @@
     <p>Learn Java programming from basics to advanced</p>
   </header>
 
-  <div class="container">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
 
     <h2>Java Video Lessons</h2>
 
     <div class="video-grid">
-      <div class="video-card">
+      <!-- Video 1 -->
+      <div class="video-card-interactive" id="video-java_intro">
         <h3>1. Introduction to Java</h3>
         <iframe src="https://www.youtube.com/embed/eIrMbAQSU34" allowfullscreen></iframe>
-      </div>
-      <div>
-          <label class="notes">Your notes</label>
-          <textarea rows="6" placeholder="Write your notes here..." required></textarea>
+        <div class="notes-section">
+          <label>Your notes</label>
+          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
+          <button class="save-note-btn" onclick="videoInteractions.saveNote('java_intro', this.previousElementSibling.value)">Save Notes</button>
         </div>
+      </div>
 
-      <div class="video-card">
+      <!-- Video 2 -->
+      <div class="video-card-interactive" id="video-java_vars">
         <h3>2. Java Variables & Data Types</h3>
         <iframe src="https://www.youtube.com/embed/grEKMHGYyns" allowfullscreen></iframe>
-      </div>
-      <div>
-          <label class="notes">Your notes</label>
-          <textarea rows="6" placeholder="Write your notes here..." required></textarea>
+        <div class="notes-section">
+          <label>Your notes</label>
+          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
+          <button class="save-note-btn" onclick="videoInteractions.saveNote('java_vars', this.previousElementSibling.value)">Save Notes</button>
         </div>
+      </div>
 
-      <div class="video-card">
+      <!-- Video 3 -->
+      <div class="video-card-interactive" id="video-java_oop">
         <h3>3. OOP Concepts in Java</h3>
         <iframe src="https://www.youtube.com/embed/6T_HgnjoYwM" allowfullscreen></iframe>
-      </div>
-      <div>
-          <label class="notes">Your notes</label>
-          <textarea rows="6" placeholder="Write your notes here..." required></textarea>
+        <div class="notes-section">
+          <label>Your notes</label>
+          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
+          <button class="save-note-btn" onclick="videoInteractions.saveNote('java_oop', this.previousElementSibling.value)">Save Notes</button>
         </div>
+      </div>
 
-      <div class="video-card">
+      <!-- Video 4 -->
+      <div class="video-card-interactive" id="video-java_loops">
         <h3>4. Java Loops & Conditions</h3>
         <iframe src="https://www.youtube.com/embed/xk4_1vDrzzo" allowfullscreen></iframe>
-      </div>
-      <div>
-          <label class="notes">Your notes</label>
-          <textarea rows="6" placeholder="Write your notes here..." required></textarea>
+        <div class="notes-section">
+          <label>Your notes</label>
+          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
+          <button class="save-note-btn" onclick="videoInteractions.saveNote('java_loops', this.previousElementSibling.value)">Save Notes</button>
         </div>
+      </div>
     </div>
 
     <div class="quiz-btn">
@@ -119,6 +128,15 @@
       @ 2025 Growly LMS | All Rights Reserved 🌱
     </div>
   </footer>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/video-interactions.js"></script>
 
 </body>
 
