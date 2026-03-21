@@ -29,11 +29,7 @@ nav ul {
   gap: 25px;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-}
+nav ul li a {  color: white;  text-decoration: none;  font-size: 25px;}
 
 nav ul li a:hover {
   color: black;
@@ -99,6 +95,23 @@ nav ul li a:hover {
 
     }
 
+#notes-container h3 {
+  color: #2193b0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#notes-container p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+#notes-container hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
     .footer-section p{
       font-size: 20px;
       color: #eaf7ff;
@@ -139,3 +152,4 @@ nav ul li a:hover {
   background-color: black;
   color: #fff;
 }
+

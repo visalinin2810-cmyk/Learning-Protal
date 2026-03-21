@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMS – Python Course</title>
   <link rel="stylesheet" href="../style/vidpython.css">
-  <link rel="stylesheet" href="../style/video-interactions.css">
 
 </head>
 
@@ -17,7 +16,6 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../pages/coursemain.html">Courses</a></li>
       <li><a href="../pages/about.html">About</a></li>
-      <li><a href="../pages/todolist.html">Todo Task</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
       <li><a href="../pages/login.html">Login</a></li>
     </ul>
@@ -28,51 +26,29 @@
     <p>Learn Python programming from basics to advanced</p>
   </header>
 
-  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+  <div class="container">
 
     <h2 class="section-title">Python Video Lessons</h2>
 
     <div class="video-grid">
-      <!-- Video 1 -->
-      <div class="video-card-interactive" id="video-python_intro">
-        <div class="notes-section">
-          <label>Your notes</label>
-          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
-          <button class="save-note-btn" onclick="videoInteractions.saveNote('python_intro', this.previousElementSibling.value)">Save Notes</button>
-        </div>
+      <div class="video-card">
+        <h3>1. Introduction to Python</h3>
+        <iframe src="https://www.youtube.com/embed/rfscVS0vtbw" allowfullscreen></iframe>
       </div>
 
-      <!-- Video 2 -->
-      <div class="video-card-interactive" id="video-python_vars">
+      <div class="video-card">
         <h3>2. Python Variables & Data Types</h3>
         <iframe src="https://www.youtube.com/embed/khKv-8q7YmY" allowfullscreen></iframe>
-        <div class="notes-section">
-          <label>Your notes</label>
-          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
-          <button class="save-note-btn" onclick="videoInteractions.saveNote('python_vars', this.previousElementSibling.value)">Save Notes</button>
-        </div>
       </div>
 
-      <!-- Video 3 -->
-      <div class="video-card-interactive" id="video-python_functions">
+      <div class="video-card">
         <h3>3. Python Functions</h3>
         <iframe src="https://www.youtube.com/embed/9Os0o3wzS_I" allowfullscreen></iframe>
-        <div class="notes-section">
-          <label>Your notes</label>
-          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
-          <button class="save-note-btn" onclick="videoInteractions.saveNote('python_functions', this.previousElementSibling.value)">Save Notes</button>
-        </div>
       </div>
 
-      <!-- Video 4 -->
-      <div class="video-card-interactive" id="video-python_lists">
+      <div class="video-card">
         <h3>4. Python Lists & Loops</h3>
         <iframe src="https://www.youtube.com/embed/W8KRzm-HUcc" allowfullscreen></iframe>
-        <div class="notes-section">
-          <label>Your notes</label>
-          <textarea class="notes-area" rows="4" placeholder="Write your notes here..."></textarea>
-          <button class="save-note-btn" onclick="videoInteractions.saveNote('python_lists', this.previousElementSibling.value)">Save Notes</button>
-        </div>
       </div>
     </div>
 
@@ -126,15 +102,6 @@
       @ 2025 Growly LMS | All Rights Reserved 🌱
     </div>
   </footer>
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="../jspages/firebase-init.js"></script>
-  <script src="../jspages/video-interactions.js"></script>
 </body>
 
 </html>

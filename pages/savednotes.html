@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Notes - LMS</title>
+  <link rel="stylesheet" href="../style/about.css">
+</head>
+
+<body>
+  <nav>
+    <h1>Growly 🌱</h1>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+      <li><a href="../pages/savednotes.html">Saved Notes</a></li>
+      <li><a href="../pages/contact.html">Contact</a></li>
+      <li><a href="../pages/login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    Your Saved Notes 🌱
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>All Your Notes</h2>
+      <div id="notes-container">
+        <p>Loading notes...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/video-interactions.js"></script>
+  <script>
+    // Function to load all saved notes
+    async function loadAllNotes() {
+      const user = auth.currentUser;
+      if (!user) {
+        document.getElementById('notes-container').innerHTML = '<p>Please login to view your notes.</p>';
+        return;
+      }
+
+      try {
+        const userDocRef = db.collection("users").doc(user.uid).collection("videoData");
+        const snapshot = await userDocRef.get();
+
+        if (snapshot.empty) {
+          document.getElementById('notes-container').innerHTML = '<p>No notes saved yet.</p>';
+          return;
+        }
+
+        let notesHtml = '';
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          if (data.notes && data.notes.trim()) {
+            notesHtml += `
+              <h3>${doc.id}</h3>
+              <textarea id="notes-${doc.id}" rows="4" style="width:100%;">${data.notes}</textarea>
+              <button onclick="updateNotes('${doc.id}')">Update Notes</button>
+              <hr>
+            `;
+          }
+        });
+
+        if (notesHtml) {
+          document.getElementById('notes-container').innerHTML = notesHtml;
+        } else {
+          document.getElementById('notes-container').innerHTML = '<p>No notes saved yet.</p>';
+        }
+      } catch (error) {
+        console.error("Error loading notes:", error);
+        document.getElementById('notes-container').innerHTML = '<p>Error loading notes.</p>';
+      }
+    }
+
+    // Function to update notes
+    async function updateNotes(videoId) {
+      const user = auth.currentUser;
+      if (!user) {
+        alert("Please login to update notes.");
+        return;
+      }
+
+      const textarea = document.getElementById('notes-' + videoId);
+      if (!textarea) return;
+
+      const content = textarea.value;
+
+      try {
+        const docRef = db.collection("users").doc(user.uid).collection("videoData").doc(videoId);
+        await docRef.set({ notes: content }, { merge: true });
+        alert("Notes updated!");
+      } catch (error) {
+        console.error("Error updating notes:", error);
+        alert("Failed to update notes.");
+      }
+    }
+
+    // Load notes when user logs in
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        loadAllNotes();
+      }
+    });
+  </script>
+</body>
+
+</html>

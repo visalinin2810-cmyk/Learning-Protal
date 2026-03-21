@@ -1,10 +1,9 @@
-
-
 let tasksState = {
     pending: [],
     finished: []
 };
 
+// firebase la irukura task a eduthu screen la show pannum
 
 async function loadTasks() {
     const user = auth.currentUser;
@@ -40,6 +39,7 @@ async function saveTasks() {
         console.error("Error saving tasks:", error);
     }
 }
+// task add pandrathukaga use pandrom add pannathuku apram save aaganum and render aaganum
 
 function addTask() {
     const input = document.getElementById("taskInput");
@@ -56,12 +56,16 @@ function addTask() {
     saveTasks();
 }
 
+
+
 function finishTask(index) {
     const task = tasksState.pending.splice(index, 1)[0];
     tasksState.finished.push(task);
     renderAllTasks();
     saveTasks();
 }
+
+
 
 function deleteTask(index, listType) {
     if (listType === 'pending') {
@@ -84,7 +88,7 @@ function editTask(index) {
 }
 
 /**
- * Renders all tasks from the state.
+ * Renders all tasks from the state. ellathaiyum ui la show pannum
  */
 function renderAllTasks() {
     const taskList = document.getElementById("taskList");
@@ -109,7 +113,7 @@ function renderAllTasks() {
         taskList.appendChild(li);
     });
 
-    // Render Finished
+    // finished task a ui la show pannum
     tasksState.finished.forEach((text, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
@@ -122,7 +126,7 @@ function renderAllTasks() {
     });
 }
 
-// Global scope functions for HTML onclick
+// on click work aaga function global al irukanum so attach to window
 window.addTask = addTask;
 window.finishTask = finishTask;
 window.deleteTask = deleteTask;
@@ -133,7 +137,6 @@ auth.onAuthStateChanged(user => {
     if (user) {
         loadTasks();
     } else {
-        // Clear UI if logged out
         tasksState = { pending: [], finished: [] };
         renderAllTasks();
     }
