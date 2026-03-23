@@ -33,11 +33,7 @@ nav ul {
   gap: 25px;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-}
+nav ul li a {  color: white;  text-decoration: none;  font-size: 25px;}
 
 nav ul li a:hover {
   color: black;
@@ -193,3 +189,4 @@ nav ul li a:hover {
   background-color: black;
   color: #fff;
 }
+

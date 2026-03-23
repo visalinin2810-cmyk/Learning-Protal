@@ -15,32 +15,10 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../pages/coursemain.html">Courses</a></li>
       <li><a href="../pages/about.html">About</a></li>
-      <li><a href="../pages/todolist.html">Todo Task</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
-      <li><a href="#" id="logoutBtn">Logout</a></li>
+      <li><a href="../pages/login.html">Login</a></li>
     </ul>
   </nav>
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script src="../jspages/firebase-init.js"></script>
-  <script>
-    // Simple auth check
-    auth.onAuthStateChanged((user) => {
-      if (!user) {
-        window.location.href = "../pages/login.html";
-      }
-    });
-
-    // Logout logic
-    document.getElementById('logoutBtn').addEventListener('click', (e) => {
-      e.preventDefault();
-      auth.signOut().then(() => {
-        window.location.href = "../pages/login.html";
-      });
-    });
-  </script>
   <header>
     <h1>HTML Course - Structure of the Web</h1>
     <p>Welcome to Growly LMS — Learn how to build the foundation of every website!</p>

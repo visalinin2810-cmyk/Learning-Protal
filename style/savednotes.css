@@ -1,0 +1,47 @@
+/* Saved Notes Page Styles */
+
+#notes-container h3 {
+  color: #2193b0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+#notes-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+#notes-container button {
+  background-color: #2193b0;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+#notes-container button:hover {
+  background-color: #1a7a9a;
+}
+
+#notes-container hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+#notes-container p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
