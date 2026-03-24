@@ -13,8 +13,10 @@
     <h1>Growly 🌱</h1>
     <ul>
       <li><a href="../index.html">Home</a></li>
-      <li><a href="../pages/about.html">About</a></li>
+      <li><a href="../pages/coursemain.html">Courses</a></li>
+      <li><a href="../pages/todolist.html">To-Do</a></li>
       <li><a href="../pages/savednotes.html">Saved Notes</a></li>
+      <li><a href="../pages/about.html">About</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
       <li><a href="../pages/login.html">Login</a></li>
     </ul>
@@ -33,8 +35,14 @@
     </div>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="../jspages/firebase-init.js"></script>
   <script src="../jspages/video-interactions.js"></script>
+  <script src="../jspages/auth-helper.js"></script>
+
+  
   <script>
     // Function to load all saved notes
     async function loadAllNotes() {
@@ -45,6 +53,7 @@
       }
 
       try {
+        console.log("Attempting to load notes for UID:", user.uid);
         const userDocRef = db.collection("users").doc(user.uid).collection("videoData");
         const snapshot = await userDocRef.get();
 
@@ -58,10 +67,11 @@
           const data = doc.data();
           if (data.notes && data.notes.trim()) {
             notesHtml += `
-              <h3>${doc.id}</h3>
-              <textarea id="notes-${doc.id}" rows="4" style="width:100%;">${data.notes}</textarea>
-              <button onclick="updateNotes('${doc.id}')">Update Notes</button>
-              <hr>
+              <div class="note-card" style="background:#fff; padding:15px; border-radius:8px; margin-bottom:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+                <h3>Video: ${doc.id}</h3>
+                <textarea id="notes-${doc.id}" rows="4" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;">${data.notes}</textarea>
+                <button onclick="updateNotes('${doc.id}')" style="margin-top:10px; background:#4caf50; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Update Note</button>
+              </div>
             `;
           }
         });
@@ -73,7 +83,20 @@
         }
       } catch (error) {
         console.error("Error loading notes:", error);
-        document.getElementById('notes-container').innerHTML = '<p>Error loading notes.</p>';
+        if (error.code === 'permission-denied') {
+          document.getElementById('notes-container').innerHTML = `
+            <div style="background:#ffebee; color:#c62828; padding:20px; border-radius:8px; border:1px solid #ef9a9a;">
+              <h3>Firebase Permission Error</h3>
+              <p>It looks like your Firestore Security Rules are blocking access.</p>
+              <p><strong>Solution:</strong> Go to your <b>Firebase Console -> Firestore Database -> Rules</b> and ensure they allow access to subcollections.</p>
+              <pre style="background:#fff; padding:10px; margin-top:10px;">match /users/{userId}/{allPaths=**} {
+  allow read, write: if request.auth != null && request.auth.uid == userId;
+}</pre>
+            </div>
+          `;
+        } else {
+          document.getElementById('notes-container').innerHTML = '<p>Error loading notes. Please check the console.</p>';
+        }
       }
     }
 

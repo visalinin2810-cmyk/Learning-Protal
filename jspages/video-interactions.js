@@ -1,7 +1,5 @@
 
-// Simple video interactions with Firebase
 
-// Function to load notes for a video
 async function loadNotes(videoId) {
     const user = auth.currentUser;
     if (!user) {
@@ -21,6 +19,10 @@ async function loadNotes(videoId) {
             console.log("No notes for video:", videoId);
         }
     } catch (error) {
+        if (error.code === 'permission-denied') {
+            console.error("Firestore Permission Denied: Check your Security Rules at console.firebase.google.com");
+            console.warn("Ensure rules allow recursive access: match /users/{userId}/{allPaths=**}");
+        }
         console.error("Error loading notes:", error);
     }
 }
@@ -43,6 +45,9 @@ async function saveNotes(videoId) {
         await docRef.set({ notes: content }, { merge: true });
         alert("Notes saved!");
     } catch (error) {
+        if (error.code === 'permission-denied') {
+            alert("Firebase Permission Error: Please check your Firestore Security Rules in the Firebase Console.");
+        }
         console.error("Error saving notes:", error);
         alert("Failed to save notes.");
     }

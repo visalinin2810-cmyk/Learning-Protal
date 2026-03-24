@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMS - HTML Course</title>
   <link rel="stylesheet" href="../style/vidhtml.css">
+  <link rel="stylesheet" href="../style/video-interactions.css">
 </head>
 
 <body>
@@ -13,6 +14,8 @@
     <h1>Growly 🌱</h1>
     <ul>
       <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/todolist.html">To-Do</a></li>
+      <li><a href="../pages/savednotes.html">Saved Notes</a></li>
       <li><a href="../pages/coursemain.html">Courses</a></li>
       <li><a href="../pages/about.html">About</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
@@ -30,24 +33,44 @@
     <h2 class="section-title">HTML Video Lessons</h2>
 
     <div class="video-grid">
-      <div class="video-card">
+      <div class="video-card-interactive" id="video-html-1">
         <h3>1. Introduction to HTML</h3>
         <iframe src="https://www.youtube.com/embed/pQN-pnXPaVg" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('html-1')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
+      <div class="video-card-interactive" id="video-html-2">
         <h3>2. HTML Elements & Tags</h3>
         <iframe src="https://www.youtube.com/embed/UB1O30fR-EE" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('html-2')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
+      <div class="video-card-interactive" id="video-html-3">
         <h3>3. HTML Forms</h3>
         <iframe src="https://www.youtube.com/embed/fNcJuPIZ2WE" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('html-3')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
+      <div class="video-card-interactive" id="video-html-4">
         <h3>4. HTML Tables & Lists</h3>
         <iframe src="https://www.youtube.com/embed/9cKsq14Kfsw" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('html-4')">Save Note</button>
+        </div>
       </div>
     </div>
 
@@ -102,6 +125,11 @@
       @ 2025 Growly LMS | All Rights Reserved 🌱
     </div>
   </footer>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/video-interactions.js"></script>
 </body>
 
 </html>

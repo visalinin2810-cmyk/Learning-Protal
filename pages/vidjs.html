@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMS – JavaScript Course</title>
   <link rel="stylesheet" href="../style/vidjs.css">
+  <link rel="stylesheet" href="../style/video-interactions.css">
 </head>
 
 <body>
@@ -14,6 +15,8 @@
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="../pages/coursemain.html">Courses</a></li>
+      <li><a href="../pages/todolist.html">To-Do</a></li>
+      <li><a href="../pages/savednotes.html">Saved Notes</a></li>
       <li><a href="../pages/about.html">About</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
       <li><a href="../pages/login.html">Login</a></li>
@@ -30,24 +33,44 @@
     <h2 class="section-title">JavaScript Video Lessons</h2>
 
     <div class="video-grid">
-      <div class="video-card">
-        <h3>1. Introduction to JavaScript</h3>
+      <div class="video-card-interactive" id="video-js-1">
+        <h3>1. JS Basics & Variables</h3>
         <iframe src="https://www.youtube.com/embed/W6NZfCO5SIk" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('js-1')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
-        <h3>2. Variables & Data Types</h3>
-        <iframe src="https://www.youtube.com/embed/hdI2bqOjy3c" allowfullscreen></iframe>
+      <div class="video-card-interactive" id="video-js-2">
+        <h3>2. Functions & Objects</h3>
+        <iframe src="https://www.youtube.com/embed/8dWL3wF_OMw" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('js-2')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
-        <h3>3. Functions & Events</h3>
-        <iframe src="https://www.youtube.com/embed/jS4aFq5-91M" allowfullscreen></iframe>
+      <div class="video-card-interactive" id="video-js-3">
+        <h3>3. Event Listeners & DOM</h3>
+        <iframe src="https://www.youtube.com/embed/01ypJpAn5rk" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('js-3')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
-        <h3>4. DOM Manipulation</h3>
-        <iframe src="https://www.youtube.com/embed/0ik6X4DJKCc" allowfullscreen></iframe>
+      <div class="video-card-interactive" id="video-js-4">
+        <h3>4. ES6+ Modern Features</h3>
+        <iframe src="https://www.youtube.com/embed/nc98O7Lsc00" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('js-4')">Save Note</button>
+        </div>
       </div>
     </div>
 
@@ -102,6 +125,12 @@
     </div>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/video-interactions.js"></script>
+  <script src="../jspages/auth-helper.js"></script>
 </body>
 
 </html>

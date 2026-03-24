@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="../style/quizpages.css">
 </head>
 <body>
+  <nav>
+    <h1>Growly 🌱</h1>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/coursemain.html">Courses</a></li>
+      <li><a href="../pages/todolist.html">To-Do</a></li>
+      <li><a href="../pages/savednotes.html">Saved Notes</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+      <li><a href="../pages/contact.html">Contact</a></li>
+      <li><a href="../pages/login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <h2>HTML Knowledge Quiz</h2>
 
 <div class="quiz-container">
     <h2 id="question">Question</h2>
@@ -22,8 +36,16 @@
 </div>
 <div class="quiz-btn">
     <a href="../pages/vidhtml.html">Back to Course</a>
+    <a href="../pages/todolist.html" style="margin-left: 15px;">To-Do List</a>
+    <a href="../pages/savednotes.html" style="margin-left: 15px;">Saved Notes</a>
 </div><br><br><br>
 
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="../jspages/firebase-init.js"></script>
 <script src="../jspages/quizhtml.js"></script>
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/auth-helper.js"></script>
 </body>
 </html>

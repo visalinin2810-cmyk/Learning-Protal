@@ -20,6 +20,9 @@ async function loadTasks() {
         }
         renderAllTasks();
     } catch (error) {
+        if (error.code === 'permission-denied') {
+            console.error("Firestore Permission Denied for To-Do List. Please update your Rules.");
+        }
         console.error("Error loading tasks:", error);
     }
 }
@@ -36,6 +39,9 @@ async function saveTasks() {
         await docRef.set(tasksState);
         console.log("Tasks saved to Firebase.");
     } catch (error) {
+        if (error.code === 'permission-denied') {
+            alert("To-Do List Error: Missing Firestore Permissions. Check your Security Rules.");
+        }
         console.error("Error saving tasks:", error);
     }
 }

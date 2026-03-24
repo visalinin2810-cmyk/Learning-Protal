@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMS - SQL Course</title>
   <link rel="stylesheet" href="../style/vidsql.css">
+  <link rel="stylesheet" href="../style/video-interactions.css">
 
 </head>
 
@@ -15,6 +16,8 @@
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="../pages/coursemain.html">Courses</a></li>
+      <li><a href="../pages/todolist.html">To-Do</a></li>
+      <li><a href="../pages/savednotes.html">Saved Notes</a></li>
       <li><a href="../pages/about.html">About</a></li>
       <li><a href="../pages/contact.html">Contact</a></li>
       <li><a href="../pages/login.html">Login</a></li>
@@ -31,24 +34,44 @@
     <h2>SQL Video Lessons</h2>
 
     <div class="video-grid">
-      <div class="video-card">
-        <h3>1. Introduction to SQL</h3>
-        <iframe src="https://www.youtube.com/embed/7S_tz1z_5bA" allowfullscreen></iframe>
-      </div>
-
-      <div class="video-card">
-        <h3>2. SQL SELECT Statement</h3>
+      <div class="video-card-interactive" id="video-sql-1">
+        <h3>1. Relational Databases & SQL</h3>
         <iframe src="https://www.youtube.com/embed/HXV3zeQKqGY" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('sql-1')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
-        <h3>3. SQL Joins</h3>
+      <div class="video-card-interactive" id="video-sql-2">
+        <h3>2. SELECT Queries & Filtering</h3>
+        <iframe src="https://www.youtube.com/embed/7Vtl2W9_9K8" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('sql-2')">Save Note</button>
+        </div>
+      </div>
+
+      <div class="video-card-interactive" id="video-sql-3">
+        <h3>3. JOINS and Relationships</h3>
         <iframe src="https://www.youtube.com/embed/9yeOJ0ZMUYw" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('sql-3')">Save Note</button>
+        </div>
       </div>
 
-      <div class="video-card">
-        <h3>4. SQL Functions & Group By</h3>
-        <iframe src="https://www.youtube.com/embed/Tk1t3WKK-ZY" allowfullscreen></iframe>
+      <div class="video-card-interactive" id="video-sql-4">
+        <h3>4. Aggregations & Grouping</h3>
+        <iframe src="https://www.youtube.com/embed/o7L_uHsh0Sg" allowfullscreen></iframe>
+        <div class="notes-section">
+          <label>Private Notes</label>
+          <textarea class="notes-area" placeholder="Take notes here..."></textarea>
+          <button class="save-note-btn" onclick="saveNotes('sql-4')">Save Note</button>
+        </div>
       </div>
     </div>
 
@@ -102,6 +125,12 @@
       @ 2025 Growly LMS | All Rights Reserved 🌱
     </div>
   </footer>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="../jspages/firebase-init.js"></script>
+  <script src="../jspages/video-interactions.js"></script>
+  <script src="../jspages/auth-helper.js"></script>
 </body>
 
 </html>

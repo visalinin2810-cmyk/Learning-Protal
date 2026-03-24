@@ -1,5 +1,6 @@
-const emailInput=document.getElementById("username");
-const passwordInput=document.getElementById("password");
+
+const emailInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
 const submitStatus=document.getElementById("submitStatus");
 
 function validateForm(event){
