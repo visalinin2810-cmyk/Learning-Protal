@@ -1,6 +1,3 @@
-// auth-helper.js
-// Handles dynamic navbar updates and logout
-
 document.addEventListener("DOMContentLoaded", () => {
     const auth = firebase.auth();
     
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             } else {
                 loginLink.textContent = "Login";
-                // Keep the href as it is
             }
         }
     });

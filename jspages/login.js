@@ -15,6 +15,7 @@ alert("Enter email and password");
 return;
 }
 
+
 submitStatus.innerText="Logging in...";
 
 auth.signInWithEmailAndPassword(email,password)

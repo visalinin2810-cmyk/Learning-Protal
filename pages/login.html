@@ -13,12 +13,12 @@
     <h2>Welcome Back </h2>
     <p>Login to your <strong>Growly</strong> account and continue your learning journey.</p>
 
-    <form class="forms" id="formvalidation">
+    <form class="forms" id="formvalidation" onsubmit="validateForm(event)">
       <input type="text" id="username" placeholder="Username or Email">
       <span id="usernameError" class="error-message"></span>
       <input type="password" id="password" placeholder="Password">
       <span id="passwordError" class="error-message"></span>
-      <button type="button" onclick="validateForm(event)">Login Your Account</button>
+      <button type="submit">Login Your Account</button>
       <p id="submitStatus" class="success-message"></p>
       <a href="../pages/signup.html">Create a new account</a>
     </form>
