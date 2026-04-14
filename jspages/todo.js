@@ -27,9 +27,8 @@ async function loadTasks() {
     }
 }
 
-/**
- * Saves tasks to Firestore.
- */
+//  Saves tasks to Firestore.
+
 async function saveTasks() {
     const user = auth.currentUser;
     if (!user) return;
@@ -93,9 +92,9 @@ function editTask(index) {
     }
 }
 
-/**
- * Renders all tasks from the state. ellathaiyum ui la show pannum
- */
+
+//  Renders all tasks from the state. ellathaiyum ui la show pannum
+
 function renderAllTasks() {
     const taskList = document.getElementById("taskList");
     const finishedList = document.getElementById("finishedList");
