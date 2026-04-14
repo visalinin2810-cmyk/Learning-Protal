@@ -28,6 +28,12 @@ body {
     background-color: #2980b9;
 }
 
+.quiz-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .quiz-btn a{
   background-color: #fff ;
   color: black;
@@ -36,7 +42,6 @@ body {
   border-radius: 20px;
   font-size: 18px;
   text-decoration: none;
-  margin-left: 670px;
   border: 0.100px solid black;
 }
 
